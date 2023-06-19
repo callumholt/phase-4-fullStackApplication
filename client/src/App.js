@@ -38,7 +38,7 @@ function App() {
           <h2>Todo Application</h2>
         </div>
         <div>
-          <p>TEST</p>
+          <LoginForm />
         </div>
       </div>
     </div>
