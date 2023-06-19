@@ -27,7 +27,8 @@
 // export default App;
 
 import React from "react";
-import loginForm from "./login_form";
+import LoginForm from "./login_form";
+import ReactDOM from "react-dom";
 
 function App() {
   return (
@@ -36,15 +37,14 @@ function App() {
         <div className="card-header">
           <h2>Todo Application</h2>
         </div>
-        <div className="card-body">
-          <div className="form-fields">
-            <loginForm />
-          </div>
-          <div className="btn-wrapper"></div>
+        <div>
+          <p>TEST</p>
         </div>
       </div>
     </div>
   );
 }
+
+ReactDOM.render(<App />, document.getElementById("root"));
 
 export default App;
