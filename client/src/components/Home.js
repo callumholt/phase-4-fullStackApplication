@@ -6,8 +6,15 @@ import NavBar from "./NavBar";
 import DogProfiles from "./DogProfiles";
 
 function Home({ user }) {
+  console.log("the user inside the HOME COMP is:", user);
+
   if (user) {
-    return <h1>Welcome, {user.username}!</h1>;
+    return (
+      <>
+        <h1>Welcome, {user.username}!</h1>
+        {/* <DogProfiles /> */}
+      </>
+    );
   } else {
     return <h1>Please Login or Sign Up</h1>;
   }

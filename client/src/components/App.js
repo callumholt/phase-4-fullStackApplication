@@ -5,6 +5,7 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import DogProfiles from "./DogProfiles";
+import Newdog from "./NewDog";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,8 +30,9 @@ function App() {
         <Routes>
           {user ? (
             <>
-              <Route path="/" element={<DogProfiles />} />
               <Route path="/" element={<Home user={user} />} />
+              <Route path="/dogs" element={<DogProfiles />} />
+              <Route path="/newdog" element={<Newdog />} />
             </>
           ) : (
             <>

@@ -20,9 +20,6 @@ const DogProfiles = () => {
   return (
     <div>
       <div>
-        <h1>Please Login or Sign Up</h1>
-      </div>
-      <div>
         {dogs.map((dog) => (
           <div key={dog.id_of_dog}>
             <h2>Name of Dog: {dog.name_of_dog}</h2>

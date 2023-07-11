@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+    # before_action :authenticate 
+    
     def index
         dogs = Dog.all
         render json: dogs
@@ -31,5 +33,10 @@ class DogsController < ApplicationController
     private
     def dog_params
         params.permit(:id_of_owner, :name_of_dog, :age_of_dog, :breed_of_dog, :bio_of_dog, :location_postCode, :dates_require_dogSitting)
+    end
+
+    def authenticate
+        render json: {error: "NOT LOGGED IN"} unless session[:user_id]
+               
     end
 end

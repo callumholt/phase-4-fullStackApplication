@@ -25,10 +25,6 @@ class UsersController < ApplicationController
 
 
         if @user.save
-            # puts "the user object that got created is: #{@user}"
-            # puts "the USERNAME for the user that got created is: #{@user.username}"
-            # puts "the BIO for the user that got created is: #{@user.bio}"
-            # puts "the NAME for the user that got created is: #{@user.name}"
 
             session[:current_user_id] = @user.id
 

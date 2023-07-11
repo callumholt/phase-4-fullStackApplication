@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { redirect } from "react-router-dom";
 
 function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
@@ -21,10 +22,12 @@ function SignUp({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => {
+        return r.json().then((user) => {
           setUser(user);
           console.log("the user (signup comp) is: ", user);
         });
+      } else {
+        throw new Error("Sign up failed");
       }
     });
   }
