@@ -30,6 +30,26 @@ class DogsController < ApplicationController
         end
     end
 
+    def show
+        dog = Dog.find_by(id: params[:id])
+        if dog
+          puts "the dog id is #{dog.id}"
+          puts "the dog is: #{dog.attributes}"
+          render json: dog
+        else
+          render json: { error: "no ID" }, status: :not_found
+        end
+    end
+
+
+    def destroy
+        dog = Dog.find_by(id: params[:id])
+        puts "the id of dog is #{dog.id}"
+        dog.delete
+        puts "The dog has been successfully deleted"
+        head :no_content
+    end
+
     private
     def dog_params
         params.permit(:id_of_owner, :name_of_dog, :age_of_dog, :breed_of_dog, :bio_of_dog, :location_postCode, :dates_require_dogSitting)

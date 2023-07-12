@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :dogs, only: [:index]
+  resources :dogs, only: [:index, :show, :create, :destroy]
   resources :users, only: [:index]
   resources :users, only: [:show]
 
@@ -17,7 +17,14 @@ Rails.application.routes.draw do
 
   get '/dogs', to: 'dogs#index'
 
+  get '/dogs/:id', to: 'dogs#show'
+
+
   post '/dogs', to: 'dogs#create'
+
+  delete '/dogs', to: 'dogs#destroy'
+
+  
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 

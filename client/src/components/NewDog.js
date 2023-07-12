@@ -28,6 +28,7 @@ function Newdog() {
     }).then((r) => {
       if (r.ok) {
         console.log("the dog was successfully created");
+        alert("New Dog Successfully created");
       } else {
         throw new Error("failed to create new dog");
       }
