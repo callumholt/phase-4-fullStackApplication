@@ -20,6 +20,7 @@ function NavBar({ user, setUser }) {
           <>
             <button onClick={handleLogoutClick}>Logout</button>
             <Link to="/dogs">Dog Profiles</Link>
+            <Link to="/updatedog">Update Dog</Link>
             <Link to="/newdog">Create New Dog</Link>
           </>
         ) : (

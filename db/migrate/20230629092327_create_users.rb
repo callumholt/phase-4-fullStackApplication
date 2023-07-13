@@ -5,8 +5,6 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.text :name
       t.text :bio
       t.integer :postcode
-      
-
       t.timestamps
     end
   end

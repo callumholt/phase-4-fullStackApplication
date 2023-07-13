@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :dogs, only: [:index, :show, :create, :destroy]
+  resources :dogs, only: [:index, :show, :create, :destroy, :update]
   resources :users, only: [:index]
   resources :users, only: [:show]
 
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/dogs/:id', to: 'dogs#show'
 
+  patch '/dogs/:id', to: 'dogs#update'
 
   post '/dogs', to: 'dogs#create'
 

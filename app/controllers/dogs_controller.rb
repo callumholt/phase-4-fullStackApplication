@@ -41,6 +41,26 @@ class DogsController < ApplicationController
         end
     end
 
+    def update
+        dog = Dog.find_by(id: params[:id])
+        puts "the id of the dog is #{params[:id]}"
+        puts "this is the old dog before updating: #{dog.attributes}"
+
+        dog.update(
+            id_of_owner: params[:id_of_owner],
+            name_of_dog: params[:name_of_dog],
+            age_of_dog: params[:age_of_dog],
+            breed_of_dog: params[:breed_of_dog],
+            bio_of_dog: params[:bio_of_dog],
+            location_postCode: params[:location_postCode],
+            dates_require_dogSitting: params[:dates_require_dogSitting]
+          )
+        dog.save
+        puts "this is the new updated dog: #{dog.attributes}"
+        render json: dog
+        # head :no_content
+    end
+
 
     def destroy
         dog = Dog.find_by(id: params[:id])

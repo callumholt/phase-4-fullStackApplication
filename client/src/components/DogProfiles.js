@@ -42,6 +42,7 @@ const DogProfiles = () => {
           <form onSubmit={handleDelete}>
             <div key={dog.id_of_dog}>
               <h2>Name of Dog: {dog.name_of_dog}</h2>
+              <p>Reference number: {dog.id}</p>
               <p>Owner: {dog.id_of_owner}</p>
               <p>Age: {dog.age_of_dog}</p>
               <p>Breed: {dog.breed_of_dog}</p>
