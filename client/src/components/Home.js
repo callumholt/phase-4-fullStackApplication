@@ -16,7 +16,7 @@ function Home({ user }) {
       </>
     );
   } else {
-    return <h1>Please Login or Sign Up</h1>;
+    return <h1>Pleas Login or Sign Up</h1>;
   }
 }
 
