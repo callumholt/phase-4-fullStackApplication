@@ -25,10 +25,6 @@ Rails.application.routes.draw do
 
   delete '/dogs', to: 'dogs#destroy'
 
-  
-
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
-
-
 
 end

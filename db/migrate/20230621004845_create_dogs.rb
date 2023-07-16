@@ -1,5 +1,6 @@
 class CreateDogs < ActiveRecord::Migration[6.1]
   def change
+
     create_table :dogs do |t|
       t.integer :id_of_dog
       t.string :primary_key
@@ -13,5 +14,7 @@ class CreateDogs < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_reference :dogs, :owner, foreign_key: true
+
   end
 end

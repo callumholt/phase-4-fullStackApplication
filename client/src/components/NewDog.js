@@ -8,6 +8,8 @@ function Newdog() {
   const [bioofdog, setBioofdog] = useState("");
   const [locationpostCode, setLocationpostCode] = useState("");
   const [datesrequiredogSitting, setDatesrequiredogSitting] = useState("");
+  const [idofowner, setIdofowner] = useState("");
+  const [ownerid, setOwnerid] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,7 +20,9 @@ function Newdog() {
       },
       body: JSON.stringify({
         // id_of_owner: 3,
+        owner_id: ownerid,
         name_of_dog: nameofdog,
+        id_of_owner: idofowner,
         age_of_dog: ageofdog,
         breed_of_dog: breedofdog,
         bio_of_dog: bioofdog,
@@ -47,6 +51,24 @@ function Newdog() {
           autoComplete="off"
           value={nameofdog}
           onChange={(e) => setNameofdog(e.target.value)}
+        />
+
+        <label htmlFor="ownerid">owner id (owner_id)</label>
+        <input
+          type="text"
+          id="ownerid"
+          autoComplete="off"
+          value={ownerid}
+          onChange={(e) => setOwnerid(e.target.value)}
+        />
+
+        <label htmlFor="idofowner">Id of Owner</label>
+        <input
+          type="text"
+          id="idofowner"
+          autoComplete="off"
+          value={idofowner}
+          onChange={(e) => setIdofowner(e.target.value)}
         />
 
         <label htmlFor="ageofdog">Age_of_dog</label>

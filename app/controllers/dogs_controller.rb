@@ -2,9 +2,14 @@ class DogsController < ApplicationController
     # before_action :authenticate 
     
     def index
-        dogs = Dog.all
-        render json: dogs
-    end
+        dog = Dog.all
+        # puts "the dog is #{dog}"
+        # puts "the dog id is #{dog.id}"
+        # puts "the dog owner_id is #{dog.owner_id}"
+        # puts "the dog is: #{dog.attributes}"
+        dog_attributes = dog.map(&:attributes)
+        render json: dog_attributes
+          end
 
     def create 
         @dogs = Dog.create(dog_params)
@@ -21,7 +26,6 @@ class DogsController < ApplicationController
 
             puts "this is the @user after the render: #{@dogs.attributes}"
 
-            # render json: @user.attributes
 
         else
             puts "Validation Errors: #{@dogs.errors.full_messages}"
@@ -33,15 +37,21 @@ class DogsController < ApplicationController
     def show
         dog = Dog.find_by(id: params[:id])
         if dog
+        puts "the dog is #{dog}"
           puts "the dog id is #{dog.id}"
+          puts "the dog owner_id is #{dog.owner_id}"
           puts "the dog is: #{dog.attributes}"
-          render json: dog
+          dogAttributes = dog.attributes
+
+          render json: dogAttributes
+
         else
           render json: { error: "no ID" }, status: :not_found
         end
     end
 
     def update
+
         dog = Dog.find_by(id: params[:id])
         puts "the id of the dog is #{params[:id]}"
         puts "this is the old dog before updating: #{dog.attributes}"
@@ -72,7 +82,7 @@ class DogsController < ApplicationController
 
     private
     def dog_params
-        params.permit(:id_of_owner, :name_of_dog, :age_of_dog, :breed_of_dog, :bio_of_dog, :location_postCode, :dates_require_dogSitting)
+        params.permit(:owner_id, :id_of_owner, :name_of_dog, :age_of_dog, :breed_of_dog, :bio_of_dog, :location_postCode, :dates_require_dogSitting)
     end
 
     def authenticate

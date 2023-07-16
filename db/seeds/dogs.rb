@@ -6,11 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Dog.destroy_all
+# Dog.destroy_all
 
-Dog.create([
+dogs = [
     {
       id_of_dog: 1,
+      owner_id: 2,
       primary_key: "abcd1234",
       id_of_owner: 1,
       name_of_dog: "Max",
@@ -22,6 +23,7 @@ Dog.create([
     },
     {
       id_of_dog: 2,
+      owner_id: 2,
       primary_key: "efgh5678",
       id_of_owner: 2,
       name_of_dog: "Bella",
@@ -33,6 +35,7 @@ Dog.create([
     },
     {
       id_of_dog: 3,
+      owner_id: 2,
       primary_key: "ijkl9012",
       id_of_owner: 3,
       name_of_dog: "Charlie",
@@ -44,6 +47,7 @@ Dog.create([
     },
     {
       id_of_dog: 4,
+      owner_id: 2,
       primary_key: "mnop3456",
       id_of_owner: 4,
       name_of_dog: "Lucy",
@@ -55,6 +59,7 @@ Dog.create([
     },
     {
       id_of_dog: 5,
+      owner_id: 2,
       primary_key: "qrst7890",
       id_of_owner: 5,
       name_of_dog: "Cooper",
@@ -66,6 +71,7 @@ Dog.create([
     },
     {
       id_of_dog: 6,
+      owner_id: 2,
       primary_key: "uvwx2345",
       id_of_owner: 6,
       name_of_dog: "Lola",
@@ -77,6 +83,7 @@ Dog.create([
     },
     {
       id_of_dog: 7,
+      owner_id: 2,
       primary_key: "yzab6789",
       id_of_owner: 7,
       name_of_dog: "Rocky",
@@ -88,6 +95,7 @@ Dog.create([
     },
     {
       id_of_dog: 8,
+      owner_id: 2,
       primary_key: "cdef1234",
       id_of_owner: 8,
       name_of_dog: "Molly",
@@ -99,6 +107,7 @@ Dog.create([
     },
     {
       id_of_dog: 9,
+      owner_id: 2,
       primary_key: "ghij5678",
       id_of_owner: 9,
       name_of_dog: "Bailey",
@@ -110,6 +119,7 @@ Dog.create([
     },
     {
       id_of_dog: 10,
+      owner_id: 2,
       primary_key: "klmn9012",
       id_of_owner: 10,
       name_of_dog: "Daisy",
@@ -119,4 +129,9 @@ Dog.create([
       location_postCode: 23456,
       dates_require_dogSitting: "2023-07-09, 2023-07-10"
     }
-  ])
+  ]
+
+  dogs.each do |dog_data|
+    Dog.create(dog_data)
+    puts "Created Dog: #{dog_data[:name]}"
+  end
