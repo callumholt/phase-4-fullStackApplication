@@ -133,5 +133,5 @@ dogs = [
 
   dogs.each do |dog_data|
     Dog.create(dog_data)
-    puts "Created Dog: #{dog_data[:name_of_dog]}"
+    puts "Created Dog: #{dog_data[:name_of_dog]}, and owner_id is #{dog_data[:owner_id]}"
   end

@@ -8,3 +8,4 @@
 
 require_relative 'seeds/users'
 require_relative 'seeds/dogs'
+require_relative 'seeds/owners'
