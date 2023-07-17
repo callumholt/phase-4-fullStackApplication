@@ -12,20 +12,19 @@ class DogsController < ApplicationController
           end
 
     def create 
-        @dogs = Dog.create(dog_params)
-        puts "the dog_params that got created is: #{dog_params}"
+        owner = Owner.find(dog_params[:owner_id])
+        dog = owner.dogs.build(dog_params)
+        
 
+        # dogs = Dog.new(dog_params)
 
-        if @dogs.save
-            # puts "the user object that got created is: #{@user}"
-            # puts "the USERNAME for the user that got created is: #{@user.username}"
-            # puts "the BIO for the user that got created is: #{@user.bio}"
-            # puts "the NAME for the user that got created is: #{@user.name}"
+        # puts "the dog_params that got created is: #{dog_params}"
+        
+        if dog.save
+        
+            render json: dog
 
-            render json: @dogs
-
-            puts "this is the @user after the render: #{@dogs.attributes}"
-
+            puts "this is the user after the render: #{dog.attributes}"
 
         else
             puts "Validation Errors: #{@dogs.errors.full_messages}"
