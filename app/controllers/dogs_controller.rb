@@ -3,12 +3,10 @@ class DogsController < ApplicationController
     
     def index
         dog = Dog.all
-        # puts "the dog is #{dog}"
-        # puts "the dog id is #{dog.id}"
-        # puts "the dog owner_id is #{dog.owner_id}"
-        # puts "the dog is: #{dog.attributes}"
         dog_attributes = dog.map(&:attributes)
-        render json: dog_attributes
+        puts "the dog_attributes is: #{dog_attributes}"
+        render json: dog_attributes 
+
           end
 
     def create 
