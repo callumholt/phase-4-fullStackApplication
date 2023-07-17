@@ -12,7 +12,9 @@ const DogProfiles = () => {
       const response = await fetch("/dogs");
       const data = await response.json();
       setDogs(data);
+      console.log(data);
       console.log(dogs);
+      console.log("the dog data was retrieved");
     } catch (error) {
       console.error("Error fetching dog data:", error);
     }
