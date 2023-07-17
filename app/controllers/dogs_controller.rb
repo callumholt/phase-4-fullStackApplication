@@ -2,12 +2,14 @@ class DogsController < ApplicationController
     # before_action :authenticate 
     
     def index
-        dog = Dog.all
-        dog_attributes = dog.map(&:attributes)
-        puts "the dog_attributes is: #{dog_attributes}"
-        render json: dog_attributes 
-
-          end
+        dogs = Dog.all
+        dog_attributes = dogs.map(&:attributes)
+      
+        puts "The dog attributes are: #{dog_attributes}"
+        puts "The dogs are: #{dogs}"
+      
+        render json: dog_attributes
+      end
 
     def create 
         owner = Owner.find(dog_params[:owner_id])
