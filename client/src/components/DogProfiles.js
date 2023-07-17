@@ -38,6 +38,7 @@ const DogProfiles = () => {
 
   return (
     <div>
+      <p>Please see the dogs below:</p>
       <div>
         {dogs.map((dog) => (
           <form onSubmit={handleDelete}>
@@ -59,6 +60,7 @@ const DogProfiles = () => {
           </form>
         ))}
       </div>
+      <p>Please see the dogs above!</p>
     </div>
   );
 };
