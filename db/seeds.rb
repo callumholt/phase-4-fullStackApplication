@@ -54,7 +54,7 @@ owners = [
 dogs = [
   {
     id_of_dog: 1,
-    owner_id: 2,
+    owner_id: "2",
     primary_key: "abcd1234",
     id_of_owner: 1,
     name_of_dog: "Max",
@@ -66,7 +66,7 @@ dogs = [
   },
   {
     id_of_dog: 2,
-    owner_id: 2,
+    owner_id: "3",
     primary_key: "efgh5678",
     id_of_owner: 2,
     name_of_dog: "Bella",
@@ -78,7 +78,7 @@ dogs = [
   },
   {
     id_of_dog: 3,
-    owner_id: 2,
+    owner_id: "6",
     primary_key: "ijkl9012",
     id_of_owner: 3,
     name_of_dog: "Charlie",
@@ -90,7 +90,7 @@ dogs = [
   },
   {
     id_of_dog: 4,
-    owner_id: 2,
+    owner_id: "4",
     primary_key: "mnop3456",
     id_of_owner: 4,
     name_of_dog: "Lucy",
@@ -102,7 +102,7 @@ dogs = [
   },
   {
     id_of_dog: 5,
-    owner_id: 2,
+    owner_id: "1",
     primary_key: "qrst7890",
     id_of_owner: 5,
     name_of_dog: "Cooper",
@@ -114,7 +114,7 @@ dogs = [
   },
   {
     id_of_dog: 6,
-    owner_id: 2,
+    owner_id: "3",
     primary_key: "uvwx2345",
     id_of_owner: 6,
     name_of_dog: "Lola",
@@ -126,7 +126,7 @@ dogs = [
   },
   {
     id_of_dog: 7,
-    owner_id: 2,
+    owner_id: "2",
     primary_key: "yzab6789",
     id_of_owner: 7,
     name_of_dog: "Rocky",
@@ -138,7 +138,7 @@ dogs = [
   },
   {
     id_of_dog: 8,
-    owner_id: 2,
+    owner_id: "2",
     primary_key: "cdef1234",
     id_of_owner: 8,
     name_of_dog: "Molly",
@@ -150,7 +150,7 @@ dogs = [
   },
   {
     id_of_dog: 9,
-    owner_id: 2,
+    owner_id: "2",
     primary_key: "ghij5678",
     id_of_owner: 9,
     name_of_dog: "Bailey",
@@ -162,7 +162,7 @@ dogs = [
   },
   {
     id_of_dog: 10,
-    owner_id: 2,
+    owner_id: "2",
     primary_key: "klmn9012",
     id_of_owner: 10,
     name_of_dog: "Daisy",
@@ -175,21 +175,35 @@ dogs = [
 ]
 
 users.each do |user_data|
-  user = User.create(user_data)
-  puts "Created User: #{user.name}"
-end
+    user = User.create(user_data)
+    puts "Created User: #{user.name}"
+  end
+  
+  owners.each do |owner_data|
+    owner = Owner.create(owner_data)
+    puts "Created Owner: #{owner.name} and owner id: #{owner.id}"
+  end
+  
+  dogs.each do |dog_data|
+    owner = Owner.find(dog_data[:owner_id])
+    puts "the owner data is #{owner.id}"
+    
+  
+    if owner
+        puts "the owner is Truthy!"
+      dog = Dog.new(dog_data)
+      owner.dogs << dog
+      puts "Created Dog: #{dog.name_of_dog} and owner is: #{owner.name}"
+    else
+        puts "the owner is falsy!"
 
-owners.each do |owner_data|
-  owner = Owner.create(owner_data)
-  puts "Created Owner: #{owner.name}"
-end
-
-dogs.each do |dog_data|
-  owner = Owner.find(dog_data[:owner_id])
-  dog = Dog.create(dog_data)
-  owner.dogs << dog
-  puts "Created Dog: #{dog.name_of_dog}, Owner: #{owner.name}"
-end
-
-
-puts "Data seeding complete!"
+      puts "Owner not found for dog: #{dog_data[:name]}"
+    end
+  end
+  
+  puts "Users count: #{User.count}"
+  puts "Dogs count: #{Dog.count}"
+  puts "Owners count: #{Owner.count}"
+  
+  puts "Data seeding complete!"
+  
