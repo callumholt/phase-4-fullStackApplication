@@ -26,4 +26,4 @@ owners.each do |owner_data|
   puts "Created Owner: #{owner_data[:name]}, owner data: #{owner_data}"
 end
 
-puts "the owners are: #{Owner.attributes}"
+puts "the owners are: #{Owner.attribute}"

@@ -67,4 +67,4 @@ users.each do |user_data|
   puts "Created user: #{user_data[:name]}"
 end
 
-puts "the users are: #{User.attributes}"
+puts "the users are: #{User.attribute}"
