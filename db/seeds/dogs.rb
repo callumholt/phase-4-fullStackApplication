@@ -135,3 +135,5 @@ dogs = [
     Dog.create(dog_data)
     puts "Created Dog: #{dog_data[:name_of_dog]}, and owner_id is #{dog_data[:owner_id]}"
   end
+
+  puts "the dogs are: #{Dog.attributes}"
