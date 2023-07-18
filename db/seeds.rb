@@ -185,9 +185,10 @@ users.each do |user_data|
   end
   
   dogs.each do |dog_data|
-    owner = Owner.find(dog_data[:owner_id])
+    owner = Owner.first
     puts "the owner data is #{owner.id}"
     
+    #dog_data[:owner_id]
   
     if owner
         puts "the owner is Truthy!"
