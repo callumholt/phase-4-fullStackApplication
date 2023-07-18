@@ -54,7 +54,6 @@ const DogProfiles = () => {
               <p>Bio: {dog.bio_of_dog}</p>
               <p>Location: {dog.location_postCode}</p>
               <p>Dates for Dog Sitting: {dog.dates_require_dogSitting}</p>
-              {/* <p>the Id of the dog is: {dog.id}</p> */}
               <button onClick={(e) => handleDelete(e, dog.id)}>
                 Delete this Dog
               </button>

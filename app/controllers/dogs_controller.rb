@@ -15,11 +15,6 @@ class DogsController < ApplicationController
         owner = Owner.find(dog_params[:owner_id])
         dog = owner.dogs.build(dog_params)
         
-
-        # dogs = Dog.new(dog_params)
-
-        # puts "the dog_params that got created is: #{dog_params}"
-        
         if dog.save
         
             render json: dog
