@@ -6,10 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require_relative 'seeds/users'
-# require_relative 'seeds/owners'
-# require_relative 'seeds/dogs'
-
 
 //
 
